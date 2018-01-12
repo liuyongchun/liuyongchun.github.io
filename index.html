@@ -270,7 +270,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T14:07:53+08:00">
                 2018-01-12
@@ -314,14 +314,27 @@
           
             <h1 id="生命周期："><a href="#生命周期：" class="headerlink" title="生命周期："></a>生命周期：</h1><h2 id="正常情况下启动Activity的生命周期"><a href="#正常情况下启动Activity的生命周期" class="headerlink" title="正常情况下启动Activity的生命周期"></a>正常情况下启动Activity的生命周期</h2><p><img src="https://github.com/liuyongchun/liuyongchun.github.io/blob/master/images/LIfeCycle.png" alt="image"></p>
 <hr>
-<p>注意：onStart()和onResume的区别：onStart()视图显示出来，但仍处于后台，无法与用户交互，onResume()时视图显示出来，可与用户交互</p>
-<h2 id="ActivityA正在运行，此时启动ActivityB，那么Activity的onPause执行完毕才会启动ActivityB"><a href="#ActivityA正在运行，此时启动ActivityB，那么Activity的onPause执行完毕才会启动ActivityB" class="headerlink" title="ActivityA正在运行，此时启动ActivityB，那么Activity的onPause执行完毕才会启动ActivityB"></a>ActivityA正在运行，此时启动ActivityB，那么Activity的onPause执行完毕才会启动ActivityB</h2><h2 id="异常情况下的生命周期"><a href="#异常情况下的生命周期" class="headerlink" title="异常情况下的生命周期"></a>异常情况下的生命周期</h2><hr>
-<h2 id="如屏幕旋转时，Activity将会销毁重建，系统会自动调用onSaveInstanceState-保存数据t和onRestoreInstanceState-恢复数据，onSaveInstanceState-方法调用时机在onStop之前，onRestoreInstanceState-则在onStart-之后，Android控件中都有该方法，来自动的做一些保存与恢复工作"><a href="#如屏幕旋转时，Activity将会销毁重建，系统会自动调用onSaveInstanceState-保存数据t和onRestoreInstanceState-恢复数据，onSaveInstanceState-方法调用时机在onStop之前，onRestoreInstanceState-则在onStart-之后，Android控件中都有该方法，来自动的做一些保存与恢复工作" class="headerlink" title="如屏幕旋转时，Activity将会销毁重建，系统会自动调用onSaveInstanceState()保存数据t和onRestoreInstanceState()恢复数据，onSaveInstanceState()方法调用时机在onStop之前，onRestoreInstanceState()则在onStart()之后，Android控件中都有该方法，来自动的做一些保存与恢复工作"></a>如屏幕旋转时，Activity将会销毁重建，系统会自动调用onSaveInstanceState()保存数据t和onRestoreInstanceState()恢复数据，onSaveInstanceState()方法调用时机在onStop之前，onRestoreInstanceState()则在onStart()之后，Android控件中都有该方法，来自动的做一些保存与恢复工作</h2><hr>
-<h2 id="备注：Android中如果进程中没有四大组件，进程很快将被系统回收，所以，如果需要在后台做一些处理，则应该写在service中来提高进程的优先级，避免被系统回收"><a href="#备注：Android中如果进程中没有四大组件，进程很快将被系统回收，所以，如果需要在后台做一些处理，则应该写在service中来提高进程的优先级，避免被系统回收" class="headerlink" title="备注：Android中如果进程中没有四大组件，进程很快将被系统回收，所以，如果需要在后台做一些处理，则应该写在service中来提高进程的优先级，避免被系统回收"></a>备注：Android中如果进程中没有四大组件，进程很快将被系统回收，所以，如果需要在后台做一些处理，则应该写在service中来提高进程的优先级，避免被系统回收</h2><h2 id="启动模式"><a href="#启动模式" class="headerlink" title="启动模式"></a>启动模式</h2><hr>
-<h2 id="四种启动模式：standard、singleTop、singleTask、singleInstance"><a href="#四种启动模式：standard、singleTop、singleTask、singleInstance" class="headerlink" title="四种启动模式：standard、singleTop、singleTask、singleInstance"></a>四种启动模式：standard、singleTop、singleTask、singleInstance</h2><p>standard：标准模式，也是默认模式，无论任务栈中是否有都会创建，这是一个典型的多实例实现，一个栈中可以有多个实例，每个实例也可以属于多个不同的栈。比如ActivityA启动ActivityB（ActivityB为标准模式），ActivityB则会加入ActivityA的栈中。<br>问题：用ApplicationContext启动Activity可以吗？为什么？</p>
-<p>singleTop:栈顶复用模式，在此情况下，如果新的Activity位于栈顶，Activity则不会创建，同时，他的onNewIntent()方法会被调用。</p>
-<p>singleTask：栈内复用模式，这是一种单例的实现，在此情况下，如果新的Activity所需的任务栈不存在，则新建任务栈，再创建Activity，否则，将该Activity之上的其余Activity”压出”栈使其位于栈顶。</p>
-<p>singleInstance：单例模式，是一种加强版的singleTask，在拥有singleTask的特点外，还加强了一点，该模式下的Activity只能单独位于一个任务栈中</p>
+<p>注意：onStart()和onResume的区别：onStart()视图显示出来，但仍处于后台，无法与用户交互，onResume()时视图显示出来，可与用户交互<br>ActivityA正在运行，此时启动ActivityB，那么Activity的onPause执行完毕才会启动ActivityB</p>
+<hr>
+<h2 id="异常情况下的生命周期"><a href="#异常情况下的生命周期" class="headerlink" title="异常情况下的生命周期"></a>异常情况下的生命周期</h2><hr>
+<p>如屏幕旋转时，Activity将会销毁重建，系统会自动调用onSaveInstanceState()保存数据t和onRestoreInstanceState()恢复数据，onSaveInstanceState()方法调用时机在onStop之前，onRestoreInstanceState()则在onStart()之后，Android控件中都有该方法，来自动的做一些保存与恢复工作</p>
+<hr>
+<hr>
+<p>备注：Android中如果进程中没有四大组件，进程很快将被系统回收，所以，如果需要在后台做一些处理，则应该写在service中来提高进程的优先级，避免被系统回收</p>
+<hr>
+<h2 id="启动模式"><a href="#启动模式" class="headerlink" title="启动模式"></a>启动模式</h2><hr>
+<p>四种启动模式：standard、singleTop、singleTask、singleInstance</p>
+<hr>
+<ol>
+<li><p>standard：标准模式，也是默认模式，无论任务栈中是否有都会创建，这是一个典型的多实例实现，一个栈中可以有多个实例，每个实例也可以属于多个不同的栈。比如ActivityA启动ActivityB（ActivityB为标准模式），ActivityB则会加入ActivityA的栈中。<br>问题：用ApplicationContext启动Activity可以吗？为什么？</p>
+</li>
+<li><p>singleTop:栈顶复用模式，在此情况下，如果新的Activity位于栈顶，Activity则不会创建，同时，他的onNewIntent()方法会被调用。</p>
+</li>
+<li><p>singleTask：栈内复用模式，这是一种单例的实现，在此情况下，如果新的Activity所需的任务栈不存在，则新建任务栈，再创建Activity，否则，将该Activity之上的其余Activity”压出”栈使其位于栈顶。</p>
+</li>
+<li><p>singleInstance：单例模式，是一种加强版的singleTask，在拥有singleTask的特点外，还加强了一点，该模式下的Activity只能单独位于一个任务栈中</p>
+</li>
+</ol>
 
           
         
@@ -399,7 +412,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T19:13:32+08:00">
                 2017-10-21
@@ -519,7 +532,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-10T10:14:25+08:00">
                 2017-10-10
@@ -679,7 +692,7 @@
                 <a href="/archives">
               
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -692,7 +705,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -740,7 +753,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
